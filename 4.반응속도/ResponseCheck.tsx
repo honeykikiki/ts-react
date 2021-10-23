@@ -35,9 +35,11 @@ const ResponseCheck = () => {
       });
     }
   }, [state]);
+
   const onReset = useCallback(() => {
     setResult([]);
   }, []);
+
   const renderAverage = () => {
     return result.length === 0 ? null : (
       <>
