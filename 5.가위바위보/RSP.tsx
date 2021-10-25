@@ -1,5 +1,6 @@
+import { off } from "process";
 import * as React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 
 const rspCoords = {
   바위: "0",
@@ -14,6 +15,8 @@ const scores = {
 } as const;
 
 type ImgCoords = typeof rspCoords[keyof typeof rspCoords];
+// type ImgCoords = "0" | "-142px" | "-284px";
+
 const computerChoice = (imgCoords: ImgCoords) => {
   return (Object.keys(rspCoords) as ["바위", "가위", "보"]).find((k) => {
     return rspCoords[k] === imgCoords;
