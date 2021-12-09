@@ -3,7 +3,7 @@ import React from 'react';
 const WordRelay = () => {
   return (
     <>
-      <div></div>
+      <div>이제야 되네</div>
     </>
   );
 };

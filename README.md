@@ -14,15 +14,18 @@ npm i @types/react @types/react-dom
 npm run dev
 npx webpack
 
-❯ npm i -D @babel/core
-@pmmmwh/react-refresh-webpack-plugin
-@types/webpack
-@types/webpack-dev-server
-babel-loader
-fork-ts-checker-webpack-plugin
-react-refresh
-ts-node
-webpack-dev-server
+## 웹팩 자동리로딩
+
+    ❯ npm i -D
+    @babel/core
+    @types/webpack
+    @types/webpack-dev-server
+    ts-node
+    fork-ts-checker-webpack-plugin
+    babel-loader
+    react-refresh
+    webpack-dev-server
+    @pmmmwh/react-refresh-webpack-plugin
 
 ## 웹펙세팅
 
