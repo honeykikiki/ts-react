@@ -14,6 +14,16 @@ npm i @types/react @types/react-dom
 npm run dev
 npx webpack
 
+❯ npm i -D @babel/core
+@pmmmwh/react-refresh-webpack-plugin
+@types/webpack
+@types/webpack-dev-server
+babel-loader
+fork-ts-checker-webpack-plugin
+react-refresh
+ts-node
+webpack-dev-server
+
 ## 웹펙세팅
 
 4가지

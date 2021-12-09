@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "strict": true,
-    "lib": ["es5", "es2020", "DOM"],
-    "target": "es6",
+    "lib": ["es2020", "dom"],
+    "target": "ES6",
     "jsx": "react"
+    // "esModuleInterop": true
   }
 }
