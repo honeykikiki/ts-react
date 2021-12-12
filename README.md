@@ -34,3 +34,23 @@ npx webpack
 파일
 모듈
 아웃풋
+
+## 리액트에 타입스크립트 적용
+
+>
+
+    useCallBack
+    2가지 방법으로 작성할수 있다 useCallBack제너릭으로 표현 방법과 event에 직접적으로 작성하는 방법
+
+```ts
+const onSubmitForm = useCallback<(e: React.FormEvent) => void>(
+  (e: React.FormEvent) => {},
+  [],
+);
+```
+
+    useRef
+
+```ts
+const inputEl = useRef<HTMLInputElement>(null);
+```
