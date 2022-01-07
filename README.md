@@ -12,7 +12,7 @@ npm i @types/react @types/react-dom
 
 명령어
 npm run dev
-npx webpack
+npx webpack 빌드
 
 ## 웹팩 자동리로딩
 
@@ -51,6 +51,19 @@ const onSubmitForm = useCallback<(e: React.FormEvent) => void>(
 
     useRef
 
+> 타입이 제대로 잡힐수있게
+
 ```ts
+const endTime: React.MutableRefObject<number>;
+
 const inputEl = useRef<HTMLInputElement>(null);
+const timeout = useRef<number | null>(null);
+```
+
+    setTimeout
+
+> node인지 window인지 확실히
+
+```ts
+window.setTimeout(() => {});
 ```

@@ -52,6 +52,7 @@ class GuGuDan extends Component<{}, IState> {
   };
 
   render() {
+    const sult = this.state;
     return (
       <>
         <div>
