@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 
 const rspCoords = {
   바위: '0',
@@ -8,28 +8,27 @@ const rspCoords = {
 } as const;
 
 const scores = {
-  가위: 1,
-  바위: 0,
+  바위: 1,
+  가위: 0,
   보: -1,
 } as const;
 
-type ImgCoords = typeof rspCoords[keyof typeof rspCoords];
-// type ImgCoords = "0" | "-142px" | "-284px";
+type imgCoords = typeof rspCoords[keyof typeof rspCoords];
+// type imgCoords = '0' | '-142px' | '-284px';
 
-const computerChoice = (imgCoords: ImgCoords) => {
-  return (Object.keys(rspCoords) as ['바위', '가위', '보']).find((k) => {
-    return rspCoords[k] === imgCoords;
+const computerChoice = (imgCoords: imgCoords) => {
+  return (Object.keys(rspCoords) as ['바위', '가위', '보']).find((value) => {
+    return rspCoords[value] === imgCoords;
   })!;
 };
 
 const RSP = () => {
   const [result, setResult] = useState('');
-  const [imgCoord, setImgCoord] = useState<ImgCoords>(rspCoords.바위);
+  const [imgCoord, setImgCoord] = useState<imgCoords>(rspCoords.바위);
   const [score, setScore] = useState(0);
   const interval = useRef<number>();
 
   useEffect(() => {
-    // componentDidMount, componentDidUpdate 역할(1대1 대응은 아님)
     console.log('다시 실행');
     interval.current = window.setInterval(changeHand, 100);
     return () => {
@@ -37,7 +36,7 @@ const RSP = () => {
       console.log('종료');
       clearInterval(interval.current);
     };
-  }, [imgCoord]);
+  }, []);
 
   const changeHand = () => {
     if (imgCoord === rspCoords.바위) {
@@ -49,25 +48,27 @@ const RSP = () => {
     }
   };
 
-  const onClickBtn = (choice: keyof typeof rspCoords) => () => {
-    clearInterval(interval.current);
-    const myScore = scores[choice];
-    const cpuScore = scores[computerChoice(imgCoord)];
-    const diff = myScore - cpuScore;
-    if (diff === 0) {
-      setResult('비겼습니다!');
-    } else if ([-1, 2].includes(diff)) {
-      setResult('이겼습니다!');
-      setScore((prevScore) => prevScore + 1);
-    } else {
-      setResult('졌습니다!');
-      setScore((prevScore) => prevScore - 1);
-    }
-    setTimeout(() => {
-      interval.current = window.setInterval(changeHand, 100);
-    }, 1000);
-  };
-
+  const onClickBtn = useCallback(
+    (choice: keyof typeof rspCoords) => () => {
+      clearInterval(interval.current);
+      const myScore = scores[choice];
+      const cpuScore = scores[computerChoice(imgCoord)];
+      const diff = myScore - cpuScore;
+      if (diff === 0) {
+        setResult('비겼습니다!');
+      } else if ([-1, 2].includes(diff)) {
+        setResult('이겼습니다!');
+        setScore((prevScore) => prevScore + 1);
+      } else {
+        setResult('졌습니다!');
+        setScore((prevScore) => prevScore - 1);
+      }
+      setTimeout(() => {
+        interval.current = window.setInterval(changeHand, 100);
+      }, 1000);
+    },
+    [result],
+  );
   return (
     <>
       <div

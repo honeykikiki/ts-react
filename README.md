@@ -67,3 +67,28 @@ const timeout = useRef<number | null>(null);
 ```ts
 window.setTimeout(() => {});
 ```
+
+    typeof keyof
+
+```js
+const repCoords = {
+  바위: '0',
+  가위: '-142px',
+  보: '-284px',
+} as const;
+
+type Typeof = typeof repCoords;
+type Typeof = {
+  바위: '0',
+  가위: '-142px',
+  보: '-284px',
+} as const;
+
+
+type Keyof = keyof typeof repCoords;
+type Keyof = "바위" | "가위" | "보"
+
+
+type imgCoords = typeof repCoords[keyof typeof repCoords];
+type imgCoords = '0' | '-142px' | '-284px';
+```
