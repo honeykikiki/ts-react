@@ -92,3 +92,17 @@ type Keyof = "바위" | "가위" | "보"
 type imgCoords = typeof repCoords[keyof typeof repCoords];
 type imgCoords = '0' | '-142px' | '-284px';
 ```
+
+    FunctionComponent || FC 프롭스
+
+```js
+import { FunctionComponent, FC } from 'react';
+
+const Ball: FunctionComponent<{ number: number }> = ({ number }) => {
+  return <></>;
+};
+
+const Ball: FC<{ number: number }> = ({ number }) => {
+  return <></>;
+};
+```

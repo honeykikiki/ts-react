@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useEffect, useState, useRef } from 'react';
 import Ball from './Ball';
 
 function getWinNumbers() {
@@ -18,7 +18,7 @@ function getWinNumbers() {
 }
 
 const Lotto = () => {
-  const lottoNumbers = useMemo<number[]>(() => getWinNumbers(), []);
+  const lottoNumbers = useMemo(() => getWinNumbers, []);
   const [winNumbers, setWinNumbers] = useState(lottoNumbers);
   const [winBalls, setWinBalls] = useState<number[]>([]);
   const [bonus, setBonus] = useState<number | null>(null);
