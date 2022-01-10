@@ -93,7 +93,7 @@ type imgCoords = typeof repCoords[keyof typeof repCoords];
 type imgCoords = '0' | '-142px' | '-284px';
 ```
 
-    FunctionComponent || FC 프롭스
+    FunctionComponent || FC 프롭스ㅎ
 
 ```js
 import { FunctionComponent, FC } from 'react';
