@@ -290,7 +290,8 @@ const MineSearch = () => {
   const { tableData, halted, timer, result } = state;
 
   const value = useMemo(
-    () => ({ tableData, halted, dispatch }),
+    (e) => ({ tableData, halted, dispatch }),
+
     [tableData, halted],
   );
 
